@@ -1,18 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
-const options = {
-    method: 'GET',
-    url: 'https://article-extractor-and-summarizer.p.rapidapi.com/summarize',
-    params: {
-        url: 'https://time.com/6266679/musk-ai-open-letter/',
-        length: '3'
-    },
-    headers: {
-        'X-RapidAPI-Key': '7cff26938cmshc3d2bee6da169fap194ad0jsn0dd41274ece3',
-        'X-RapidAPI-Host': 'article-extractor-and-summarizer.p.rapidapi.com'
-    }
-};
 
 const apiKey = import.meta.env.VITE_RAPID_API_ARTICLE_KEY
 
@@ -21,7 +9,7 @@ export const articleApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://article-extractor-and-summarizer.p.rapidapi.com",
         prepareHeaders: (headers) => {
-            headers.set('X-RapidAPI-Key', apiKey||"7cff26938cmshc3d2bee6da169fap194ad0jsn0dd41274ece3");
+            headers.set('X-RapidAPI-Key', apiKey);
             headers.set('X-RapidAPI-Host', 'article-extractor-and-summarizer.p.rapidapi.com');
             return headers;
         }
